@@ -101,7 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (targetId === 'home') {
   history.replaceState(null, null, window.location.pathname);
 } else {
+  if (targetId === 'home') {
+  history.replaceState(null, null, window.location.pathname);
+} else {
   history.pushState(null, null, '#' + targetId);
+}
 }
 
     // Wait for the active section to become visible, then scroll to it.
