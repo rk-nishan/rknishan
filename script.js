@@ -46,19 +46,34 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      SPA Navigation
      ========================================================================== */
-  const switchTab = (targetId) => {
-    // Scroll to the content area on mobile, or top of page on desktop
-    if (window.innerWidth < 992) {
-      const headerHeight = document.querySelector('.app-header')?.offsetHeight || 0;
-      const mainTop = document.querySelector('.main-layout')?.offsetTop || 0;
-      window.scrollTo({
-        top: Math.max(mainTop - headerHeight - 12, 0),
-        behavior: 'smooth'
-      });
-    } else {
+  const scrollToTargetSection = (targetId) => {
+    const targetSection = document.getElementById(targetId);
+
+    if (!targetSection) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
     }
 
+    if (window.innerWidth < 992) {
+      if (targetId === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      const headerHeight = document.querySelector('.app-header')?.offsetHeight || 0;
+      const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: Math.max(targetTop - headerHeight - 12, 0),
+        behavior: 'smooth'
+      });
+      return;
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const switchTab = (targetId) => {
     // Deactivate all links and sections
     navLinks.forEach(link => {
       if (link.getAttribute('data-target') === targetId) {
@@ -76,8 +91,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    if (window.innerWidth < 992) {
+      document.body.classList.toggle('mobile-home-view', targetId === 'home');
+    } else {
+      document.body.classList.remove('mobile-home-view');
+    }
+
     // Update address bar hash without trigger jump
     history.pushState(null, null, '#' + targetId);
+
+    // Wait for the active section to become visible, then scroll to it.
+    requestAnimationFrame(() => {
+      scrollToTargetSection(targetId);
+    });
   };
 
   // Nav Links click handler
@@ -85,13 +111,13 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = link.getAttribute('data-target');
-      switchTab(targetId);
 
       // Close mobile menu if open
       if (mobileMenu.classList.contains('open')) {
-        mobileMenu.classList.remove('open');
-        mobileNavTrigger.classList.remove('active');
+        setMobileMenuState(false);
       }
+
+      switchTab(targetId);
     });
   });
 
@@ -115,9 +141,29 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      Mobile Navigation Toggle
      ========================================================================== */
+  const setMobileMenuState = (isOpen) => {
+    mobileMenu.classList.toggle('open', isOpen);
+    mobileNavTrigger.classList.toggle('active', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
+    mobileNavTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  };
+
+  mobileNavTrigger.setAttribute('aria-expanded', 'false');
+
   mobileNavTrigger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-    mobileNavTrigger.classList.toggle('active');
+    setMobileMenuState(!mobileMenu.classList.contains('open'));
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 992 && mobileMenu.classList.contains('open')) {
+      setMobileMenuState(false);
+    }
+    if (window.innerWidth < 992) {
+      const activeSection = document.querySelector('.content-section.active');
+      document.body.classList.toggle('mobile-home-view', activeSection?.id === 'home');
+    } else {
+      document.body.classList.remove('mobile-home-view');
+    }
   });
 
   // Close mobile menu if clicked outside
@@ -125,8 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!mobileMenu.contains(e.target) && 
         !mobileNavTrigger.contains(e.target) && 
         mobileMenu.classList.contains('open')) {
-      mobileMenu.classList.remove('open');
-      mobileNavTrigger.classList.remove('active');
+      setMobileMenuState(false);
     }
   });
 
