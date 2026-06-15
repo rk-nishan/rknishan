@@ -98,7 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Update address bar hash without trigger jump
-    history.pushState(null, null, '#' + targetId);
+    if (targetId === 'home') {
+  history.replaceState(null, null, window.location.pathname);
+} else {
+  history.pushState(null, null, '#' + targetId);
+}
 
     // Wait for the active section to become visible, then scroll to it.
     requestAnimationFrame(() => {
