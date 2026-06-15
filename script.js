@@ -131,7 +131,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  window.addEventListener('load', handleHashOnLoad);
+  const handleInitialRoute = () => {
+  const hash = window.location.hash.substring(1);
+  const validSections = Array.from(sections).map(s => s.id);
+
+  if (hash && validSections.includes(hash)) {
+    switchTab(hash);
+  } else {
+    switchTab('home');
+  }
+};
+
+handleInitialRoute();
   // Also handle back/forward browser navigation
   window.addEventListener('popstate', () => {
     const hash = window.location.hash.substring(1) || 'home';
