@@ -381,46 +381,6 @@ img {
 }
 
 /* ==========================================================================
-   Hero Banner Section
-   ========================================================================== */
-.hero-banner {
-  position: relative;
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
-  background-color: var(--bg-surface);
-  transition: background-color var(--transition-normal);
-}
-
-@media (min-width: 768px) {
-  .hero-banner {
-    height: 240px;
-  }
-}
-
-.banner-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
-  z-index: 2;
-}
-
-.banner-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: filter var(--transition-normal);
-}
-
-[data-theme="dark"] .banner-image {
-  filter: brightness(0.75) contrast(1.1);
-}
-
-/* ==========================================================================
    Main Layout Grid
    ========================================================================== */
 .main-layout {
@@ -774,7 +734,7 @@ img {
 }
 
 /* ==========================================================================
-   Timelines (Education & Experience)
+   Timeline Sections
    ========================================================================== */
 .timeline-container {
   display: flex;
@@ -895,6 +855,243 @@ img {
   display: inline-block;
   width: 1em;
   margin-left: -1em;
+}
+
+/* ==========================================================================
+   Education Table & Project Cards
+   ========================================================================== */
+.education-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow);
+}
+
+.education-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.education-table th,
+.education-table td {
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+  vertical-align: top;
+}
+
+.education-table th {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.education-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.education-table td {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.education-table td strong {
+  color: var(--text-primary);
+}
+
+.education-table td span {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.projects-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-card {
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.project-card:hover,
+.project-card[open] {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.project-card[open] {
+  transform: translateY(-2px);
+}
+
+.project-card summary {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.25rem 1.35rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.project-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-year {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0 0.75rem;
+  border-radius: 999px;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  font-size: 0.76rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.project-main {
+  display: grid;
+  gap: 0.22rem;
+  min-width: 0;
+}
+
+.project-main strong {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 1.04rem;
+  line-height: 1.28;
+}
+
+.project-main span {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.project-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.project-toggle::after {
+  content: "+";
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.project-card[open] .project-toggle::after {
+  content: "-";
+}
+
+.project-details-card {
+  margin: 0 1.35rem 1.35rem;
+  padding: 1.1rem 1.15rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  background-color: var(--bg-primary);
+}
+
+.project-card:not([open]) .project-details-card {
+  display: none;
+}
+
+.project-details-card p {
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+}
+
+.project-details-card ul {
+  display: grid;
+  gap: 0.45rem;
+  padding-left: 1.1rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .education-table {
+    min-width: 0;
+  }
+
+  .education-table thead {
+    display: none;
+  }
+
+  .education-table,
+  .education-table tbody,
+  .education-table tr,
+  .education-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .education-table tr {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .education-table tr:last-child {
+    border-bottom: 0;
+  }
+
+  .education-table td {
+    display: grid;
+    grid-template-columns: 95px minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.42rem 1rem;
+    border-bottom: 0;
+  }
+
+  .education-table td::before {
+    content: attr(data-label);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .project-card summary {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1.1rem;
+  }
+
+  .project-toggle {
+    justify-content: space-between;
+  }
+
+  .project-details-card {
+    margin: 0 1rem 1rem;
+  }
 }
 
 /* ==========================================================================
@@ -1037,6 +1234,14 @@ img {
 /* Conference presentations style */
 .subsection-wrap {
   margin-top: 3.5rem;
+}
+
+.publication-filter-group {
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.publication-filter-group[hidden] {
+  display: none !important;
 }
 
 .subsection-title {
@@ -1212,6 +1417,18 @@ img {
   grid-template-columns: 1fr;
   gap: 2rem;
   margin-top: 2rem;
+}
+
+.experience-extra {
+  margin-top: 2.5rem;
+}
+
+.awards-first {
+  margin-bottom: 2.5rem;
+}
+
+.experience-extra .volunteering-wrap {
+  margin-top: 0;
 }
 
 @media (min-width: 768px) {
@@ -1763,6 +1980,9 @@ body::after {
 .mobile-menu,
 .sidebar-card,
 .timeline-card,
+.education-table-wrap,
+.project-card,
+.project-details-card,
 .stat-card,
 .publication-item,
 .conference-card,
@@ -1860,30 +2080,15 @@ body::after {
   -webkit-backdrop-filter: blur(18px) saturate(1.45);
 }
 
-.hero-banner {
-  height: 210px;
-  border-bottom: 1px solid var(--glass-border-muted);
-  box-shadow: 0 24px 64px -48px rgba(8, 17, 31, 0.58);
-}
-
-@media (min-width: 768px) {
-  .hero-banner {
-    height: 270px;
-  }
-}
-
-.banner-overlay {
-  background:
-    linear-gradient(90deg, rgba(6, 13, 23, 0.28), transparent 34%, rgba(5, 13, 22, 0.22)),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(4, 9, 16, 0.42));
-}
-
 .main-layout {
   padding-top: 2.5rem;
 }
 
 .sidebar-card,
 .timeline-card,
+.education-table-wrap,
+.project-card,
+.project-details-card,
 .stat-card,
 .publication-item,
 .conference-card,
@@ -1939,6 +2144,8 @@ body::after {
 }
 
 .timeline-card,
+.education-table-wrap,
+.project-card,
 .publication-item,
 .conference-card,
 .skill-category-card,
@@ -1952,7 +2159,15 @@ body::after {
     var(--glass-bg-strong);
 }
 
+.project-details-card {
+  background:
+    linear-gradient(145deg, var(--glass-highlight), transparent 44%),
+    var(--glass-bg);
+}
+
 .timeline-card:hover,
+.project-card:hover,
+.project-card[open],
 .publication-item:hover,
 .conference-card:hover,
 .skill-category-card:hover,
