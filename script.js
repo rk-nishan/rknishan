@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyButtons = document.querySelectorAll('.copy-btn');
   const pubCopyButtons = document.querySelectorAll('.pub-copy-btn');
   const filterTabs = document.querySelectorAll('.filter-tab');
-  const pubItems = document.querySelectorAll('.publication-item');
+  const pubItems = document.querySelectorAll('.publication-item, .publication-filter-group');
   const contactForm = document.getElementById('contact-form');
   const toastContainer = document.getElementById('toast-container');
 
@@ -21,13 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
      Theme Switching (Light/Dark)
      ========================================================================== */
   const initTheme = () => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    localStorage.removeItem('theme');
     
-    if (savedTheme) {
+    if (savedTheme === 'dark' || savedTheme === 'light') {
       document.documentElement.setAttribute('data-theme', savedTheme);
-    } else if (prefersDark) {
-      document.documentElement.setAttribute('data-theme', 'dark');
     } else {
       document.documentElement.setAttribute('data-theme', 'light');
     }
@@ -38,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
     document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    localStorage.setItem('portfolio-theme', newTheme);
     showToast(`Switched to ${newTheme} mode`);
   });
 
@@ -51,10 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const switchTab = (targetId) => {
     // Scroll to the content area on mobile, or top of page on desktop
     if (window.innerWidth < 992) {
-      const bannerHeight = document.querySelector('.hero-banner').offsetHeight;
-      const headerHeight = document.querySelector('.app-header').offsetHeight;
+      const headerHeight = document.querySelector('.app-header')?.offsetHeight || 0;
+      const mainTop = document.querySelector('.main-layout')?.offsetTop || 0;
       window.scrollTo({
-        top: bannerHeight + headerHeight - 20,
+        top: Math.max(mainTop - headerHeight - 12, 0),
         behavior: 'smooth'
       });
     } else {
@@ -154,6 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      Publications Filters
      ========================================================================== */
+  pubItems.forEach(item => {
+    item.dataset.defaultDisplay = window.getComputedStyle(item).display;
+  });
+
   filterTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       // Set active tab
@@ -162,17 +164,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const filterValue = tab.getAttribute('data-filter');
 
-      // Filter publications
+      // Filter publication cards and the conference section
       pubItems.forEach(item => {
         const category = item.getAttribute('data-category');
+        const shouldShow = filterValue === 'all' || category === filterValue;
         
         // Hide card smoothly
         item.style.opacity = '0';
         item.style.transform = 'translateY(10px)';
 
         setTimeout(() => {
-          if (filterValue === 'all' || category === filterValue) {
-            item.style.display = 'flex';
+          if (shouldShow) {
+            item.hidden = false;
+            item.style.display = item.dataset.defaultDisplay || '';
             // Trigger animation frame for showing
             requestAnimationFrame(() => {
               setTimeout(() => {
@@ -181,9 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
               }, 50);
             });
           } else {
+            item.hidden = true;
             item.style.display = 'none';
           }
-        }, 300);
+        }, 180);
       });
     });
   });
@@ -207,17 +212,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================================
-     Contact Form Submit Handler (Mock Processing)
+     Contact Form Submit Handler
      ========================================================================== */
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
       const submitBtn = contactForm.querySelector('.submit-btn');
-      const name = document.getElementById('form-name').value;
-      const email = document.getElementById('form-email').value;
-      const subject = document.getElementById('form-subject').value;
-      const message = document.getElementById('form-message').value;
+      const name = document.getElementById('form-name').value.trim();
+      const email = document.getElementById('form-email').value.trim();
+      const subject = document.getElementById('form-subject').value.trim();
+      const message = document.getElementById('form-message').value.trim();
 
       // Validate fields
       if (!name || !email || !subject || !message) {
@@ -227,18 +232,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Show spinner
       submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
 
-      // Simulate network request (1.5 seconds)
-      setTimeout(() => {
-        // Clear form
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Formspree request failed');
+        }
+
         contactForm.reset();
-        
-        // Hide spinner
-        submitBtn.classList.remove('loading');
-        
-        // Show success toast
         showToast('Message sent successfully!');
-      }, 1500);
+      } catch (err) {
+        console.error('Failed to send message: ', err);
+        showToast('Message could not be sent. Please email directly.');
+      } finally {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+      }
     });
   }
 
