@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Rasel Khan Nishan | Microbiologist & Computational Biologist</title>
+  <meta name="description" content="Portfolio of Rasel Khan Nishan, MPhil researcher in Microbiology at Jagannath University, specializing in molecular diagnostics, multi-omics analysis, and vaccine design.">
+  <meta name="keywords" content="Rasel Khan Nishan, Microbiology, Computational Biology, Bioinformatics, MPhil, Research, RNA-seq, Molecular Diagnostics">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rasel Khan Nishan | Microbiologist & Computational Biologist">
+  <meta property="og:description" content="MPhil researcher in Microbiology at Jagannath University, specializing in molecular diagnostics, multi-omics analysis, and vaccine design.">
+  <meta property="og:image" content="assets/banner.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="#home" class="logo-link">
+          <span class="logo-name">Rasel Khan Nishan</span>
+          <span class="logo-title">Microbiologist</span>
+        </a>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <a href="#home" class="nav-link active" data-target="home">Home</a>
+        <a href="#experience" class="nav-link" data-target="experience">Education & Experience</a>
+        <a href="#publications" class="nav-link" data-target="publications">Publications</a>
+        <a href="#skills" class="nav-link" data-target="skills">Skills & Awards</a>
+        <a href="#references" class="nav-link" data-target="references">References</a>
+        <a href="#contact" class="nav-link" data-target="contact">Contact</a>
+      </nav>
+
+      <!-- Theme Switcher & Mobile Menu Trigger -->
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+          <!-- Light icon (Sun) -->
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Dark icon (Moon) -->
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button id="mobile-nav-trigger" class="mobile-nav-trigger" aria-label="Open Menu">
+          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <nav class="mobile-nav-links">
+        <a href="#home" class="mobile-nav-link active" data-target="home">Home</a>
+        <a href="#experience" class="mobile-nav-link" data-target="experience">Education & Experience</a>
+        <a href="#publications" class="mobile-nav-link" data-target="publications">Publications</a>
+        <a href="#skills" class="mobile-nav-link" data-target="skills">Skills & Awards</a>
+        <a href="#references" class="mobile-nav-link" data-target="references">References</a>
+        <a href="#contact" class="mobile-nav-link" data-target="contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <div class="hero-banner">
+    <div class="banner-overlay"></div>
+    <img src="assets/banner.png" alt="Microbiology & Computational Biology abstract banner" class="banner-image">
+  </div>
+
+  <!-- Main Container -->
+  <div class="main-layout container">
+    <div class="layout-row">
+      
+      <!-- Left Sidebar (Profile & Contacts) -->
+      <aside class="sidebar-col">
+        <div class="sidebar-card">
+          <!-- Profile Picture -->
+          <div class="profile-avatar-frame">
+            <img src="assets/avatar.png" alt="Rasel Khan Nishan profile picture" class="profile-avatar">
+          </div>
+
+          <!-- Profile Header Info -->
+          <div class="profile-details">
+            <h1 class="profile-name">Rasel Khan Nishan</h1>
+            <p class="profile-title">MPhil Researcher in Microbiology</p>
+            <p class="profile-institution">Jagannath University, Dhaka</p>
+          </div>
+
+          <hr class="divider">
+
+          <!-- Core Details / Contacts -->
+          <div class="contact-list">
+            <!-- Email -->
+            <div class="contact-item">
+              <span class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+              </span>
+              <div class="contact-info">
+                <span class="contact-label">Email</span>
+                <a href="mailto:nishan.raselkhan@gmail.com" class="contact-link">nishan.raselkhan@gmail.com</a>
+                <button class="copy-btn" data-copy="nishan.raselkhan@gmail.com" title="Copy email address">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-item">
+              <span class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <div class="contact-info">
+                <span class="contact-label">Phone</span>
+                <a href="tel:+8801785439803" class="contact-link">+8801785439803</a>
+                <button class="copy-btn" data-copy="+8801785439803" title="Copy phone number">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="contact-item">
+              <span class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div class="contact-info">
+                <span class="contact-label">Location</span>
+                <span class="contact-text">Dhaka, Bangladesh</span>
+              </div>
+            </div>
+
+            <!-- IELTS -->
+            <div class="contact-item">
+              <span class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </span>
+              <div class="contact-info">
+                <span class="contact-label">IELTS Score</span>
+                <span class="contact-text"><strong>7.5 Overall</strong> (L: 8, R: 8.5, W: 6.5, S: 6.5)</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="divider">
+
+          <!-- Social Links / Badge-Style -->
+          <div class="social-links">
+            <a href="https://orcid.org" target="_blank" rel="noopener noreferrer" class="social-btn" title="ORCID Profile">
+              <span class="social-btn-icon">🆔</span>
+              <span class="social-btn-text">ORCID</span>
+            </a>
+            <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Google Scholar Citations">
+              <svg class="scholar-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2L1 9l11 7 9-5.73V17h2V9L12 2zm4.73 11L12 16l-4.73-3L12 10.27 16.73 13z"/></svg>
+              <span class="social-btn-text">Scholar</span>
+            </a>
+            <a href="https://www.researchgate.net" target="_blank" rel="noopener noreferrer" class="social-btn" title="ResearchGate Profile">
+              <span class="social-btn-icon">🔬</span>
+              <span class="social-btn-text">ResearchGate</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn Profile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span class="social-btn-text">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Content Panel -->
+      <main class="content-col">
+        
+        <!-- Home Section -->
+        <section id="home" class="content-section active">
+          <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Microbiologist & Computational Biology Researcher exploring disease mechanisms, therapeutic targets, and pathogen identification.</p>
+          </div>
+          
+          <div class="rich-text-content">
+            <p>
+              I am an <strong>MPhil researcher in Microbiology</strong> at Jagannath University, Dhaka. My research lies at the intersection of molecular diagnostics, vaccine design, and computational biology. Currently, my thesis project focuses on the <strong>development of a strip-based DNA hybridization assay</strong> for the rapid, cost-effective detection of selected Gram-positive nosocomial pathogens and their virulence/resistance markers.
+            </p>
+            <p>
+              Over the past few years, I have actively expanded my research to incorporate computational biology workflows. I specialize in applying statistical programming (R and Python) to analyze multi-omics data, construct ceRNA interaction networks, run survival modeling, perform molecular docking simulations, and design broad-spectrum multi-epitope vaccines against major clinical pathogens such as <em>Streptococcus pneumoniae</em> and the <em>Nipah virus</em>.
+            </p>
+            <p>
+              I have served as a Visiting Graduate Researcher at the <strong>Bangladesh Council of Scientific and Industrial Research (BCSIR)</strong> and as a Research Assistant in the Department of Microbiology at Jagannath University. My goal is to bridge the gap between traditional wet-lab assays and modern bioinformatics pipelines to discover actionable clinical solutions.
+            </p>
+          </div>
+
+          <!-- Highlight Cards -->
+          <div class="grid-stats">
+            <div class="stat-card">
+              <div class="stat-icon">🎓</div>
+              <div class="stat-info">
+                <h3>Ongoing MPhil</h3>
+                <p>Jagannath University</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">📊</div>
+              <div class="stat-info">
+                <h3>GPA 3.85 / 4.00</h3>
+                <p>Master of Science</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">📝</div>
+              <div class="stat-info">
+                <h3>4 Publications</h3>
+                <p>1 Accepted, 3 Under Review</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thematic Highlight Box -->
+          <div class="callout-box">
+            <div class="callout-emoji">🏆</div>
+            <div class="callout-content">
+              <h4>Recent Academic Recognition</h4>
+              <p>Awarded <strong>1st Runner-up poster presentation</strong> at the 37th BSM Annual Conference in January 2024 for research on bacterial strain isolation from wastewater samples.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Experience & Education Section -->
+        <section id="experience" class="content-section">
+          <div class="section-header">
+            <h2 class="section-title">Education & Research Experience</h2>
+            <p class="section-subtitle">Academic qualifications and professional research appointments.</p>
+          </div>
+
+          <!-- Timelines Wrap -->
+          <div class="timeline-container">
+            
+            <!-- Research Experience -->
+            <div class="timeline-group">
+              <h3 class="timeline-group-title">Research Experience</h3>
+              
+              <!-- Timeline Item 1 -->
+              <div class="timeline-card">
+                <div class="timeline-badge badge-work">RA</div>
+                <div class="timeline-header">
+                  <span class="timeline-date">Jul 2024 - Jan 2026</span>
+                  <h4 class="timeline-title">Research Assistant</h4>
+                  <p class="timeline-org">Department of Microbiology, Jagannath University</p>
+                </div>
+                <div class="timeline-body">
+                  <p><strong>Project:</strong> mRNA-miRNA-lncRNA interaction network in different stages of lung adenocarcinoma</p>
+                  <p><strong>Advisor:</strong> Professor Dr. Mohammad Ariful Islam</p>
+                  <ul class="contributions-list">
+                    <li>Data acquisition, preprocessing, and differential expression analysis (DESeq2, edgeR).</li>
+                    <li>ceRNA network construction, functional pathway enrichment (GO/KEGG/GSEA), and survival modeling.</li>
+                    <li>Conducted tumor microenvironment (TME) evaluations, immune infiltration, drug sensitivity screening, and single-cell validation.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Timeline Item 2 -->
+              <div class="timeline-card">
+                <div class="timeline-badge badge-work">VR</div>
+                <div class="timeline-header">
+                  <span class="timeline-date">Jul 2023 - Jun 2024</span>
+                  <h4 class="timeline-title">Visiting Graduate Researcher</h4>
+                  <p class="timeline-org">Bangladesh Council of Scientific and Industrial Research (BCSIR), Dhaka</p>
+                </div>
+                <div class="timeline-body">
+                  <p><strong>Project:</strong> Development of a broad-spectrum epitope-based vaccine against <em>Streptococcus pneumoniae</em></p>
+                  <p><strong>Advisor:</strong> Dr. Shahina Akter</p>
+                  <ul class="contributions-list">
+                    <li>Protein sequence retrieval, T-cell & B-cell epitope prediction, and physicochemical analysis.</li>
+                    <li>Designed multi-epitope vaccine construct using specific linkers and adjuvants.</li>
+                    <li>Performed molecular docking, immune simulation, codon optimization, and in-silico cloning.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Timeline Item 3 -->
+              <div class="timeline-card">
+                <div class="timeline-badge badge-work">URA</div>
+                <div class="timeline-header">
+                  <span class="timeline-date">Oct 2022 - Jun 2023</span>
+                  <h4 class="timeline-title">Undergraduate Research Assistant</h4>
+                  <p class="timeline-org">Advanced Molecular Biology Laboratory, Jagannath University</p>
+                </div>
+                <div class="timeline-body">
+                  <p><strong>Project:</strong> Molecular identification of <em>Escherichia Coli</em> from environmental sample</p>
+                  <p><strong>Advisor:</strong> Associate Professor Dr. Ahmed Abu Rus</p>
+                  <ul class="contributions-list">
+                    <li>Conducted sample collection, bacterial isolation, and selective culturing (MacConkey, EMB agar).</li>
+                    <li>Performed biochemical identification assays (KIA, SIM, MR-VP, Citrate, Oxidase, Catalase).</li>
+                    <li>Isolated DNA, purified nucleic acids, ran PCR amplification of 16S rRNA gene, and visualized bands via agarose gel electrophoresis.</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Education -->
+            <div class="timeline-group">
+              <h3 class="timeline-group-title">Education</h3>
+              
+              <!-- Edu Item 1 -->
+              <div class="timeline-card">
+                <div class="timeline-badge badge-edu">MPhil</div>
+                <div class="timeline-header">
+                  <span class="timeline-date">Ongoing</span>
+                  <h4 class="timeline-title">MPhil in Microbiology</h4>
+                  <p class="timeline-org">Jagannath University, Dhaka</p>
+                </div>
+                <div class="timeline-body">
+                  <p><strong>Thesis:</strong> Development of a Strip-Based DNA Hybridization Assay for Detection of Selected Gram-Positive Nosocomial Pathogens and Their Resistance and Virulence Markers in Bangladesh</p>
+                  <p><strong>Supervisor:</strong> Associate Professor Dr. Tasneem Ahmed</p>
+                </div>
+              </div>
+
+              <!-- Edu Item 2 -->
+              <div class="timeline-card">
+                <div class="timeline-badge badge-edu">MSc</div>
+                <div class="timeline-header">
+                  <span class="timeline-date">2021 - 2022 (Awarded 2022)</span>
+                  <h4 class="timeline-title">MSc in Microbiology</h4>
+                  <p class="timeline-org">Jagannath University | GPA: <strong>3.85 / 4.00</strong></p>
+                </div>
+                <div class="timeline-body">
+                  <p><strong>Thesis:</strong> mRNA-miRNA-lncRNA interaction network in different stages of lung adenocarcinoma</p>
+                  <p><em>Exams Completed: March 2025 | Results Published: April 2025</em></p>
+                </div>
+              </div>
+
+              <!-- Edu Item 3 -->
+              <div class="timeline-card">
+                <div class="timeline-badge badge-edu">BSc</div>
+                <div class="timeline-header">
+                  <span class="timeline-date">2017 - 2018 (Awarded 2021)</span>
+                  <h4 class="timeline-title">BSc in Microbiology</h4>
+                  <p class="timeline-org">Jagannath University | GPA: <strong>3.45 / 4.00</strong> (Last 4 Semesters: <strong>3.71</strong>)</p>
+                </div>
+                <div class="timeline-body">
+                  <p><strong>4th Year Project:</strong> Molecular identification of <em>Escherichia Coli</em> from environmental sample</p>
+                  <p><em>Exams Completed: March 2023 | Results Published: June 2023</em></p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="content-section">
+          <div class="section-header">
+            <h2 class="section-title">Publications & Conferences</h2>
+            <p class="section-subtitle">Academic papers, preprints, and presentations at scientific conferences.</p>
+          </div>
+
+          <!-- Publications Filter Tabs -->
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">All</button>
+            <button class="filter-tab" data-filter="accepted">Peer-Reviewed</button>
+            <button class="filter-tab" data-filter="review">Under Review</button>
+            <button class="filter-tab" data-filter="prep">In Preparation</button>
+          </div>
+
+          <!-- Publications Grid -->
+          <div class="publications-list">
+            
+            <!-- Pub 1: Accepted -->
+            <div class="publication-item" data-category="accepted">
+              <span class="pub-badge badge-published">Accepted</span>
+              <div class="pub-details">
+                <h4 class="pub-title">Development of a broad-spectrum epitope-based vaccine against <em>Streptococcus pneumoniae</em></h4>
+                <p class="pub-authors">Nahian M., Shahab M, <strong>Khan M.R</strong>, Akash S, Banu TA, Sarkar MH, et al. (2025)</p>
+                <p class="pub-journal"><strong>PLoS ONE</strong> 20(1):e0317216.</p>
+              </div>
+              <div class="pub-actions">
+                <a href="https://doi.org/10.1371/journal.pone.0317216" target="_blank" rel="noopener noreferrer" class="pub-link-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  DOI Link
+                </a>
+                <button class="pub-copy-btn" data-citation="Nahian M, Shahab M, Khan MR, Akash S, Banu TA, Sarkar MH, et al. Development of a broad-spectrum epitope-based vaccine against Streptococcus pneumoniae. PLoS ONE. 2025;20(1):e0317216.">Copy Citation</button>
+              </div>
+            </div>
+
+            <!-- Pub 2: In Review -->
+            <div class="publication-item" data-category="review">
+              <span class="pub-badge badge-review">In Review</span>
+              <div class="pub-details">
+                <h4 class="pub-title">A ceRNA-based multi-omics analysis identifies an ITGB1-DT and IGF2BP1 prognostic signature and predicted drug sensitivities in lung adenocarcinoma</h4>
+                <p class="pub-authors"><strong>Rasel Khan Nishan</strong>, Md Nahian, Md Shariful Islam, Abul Kalam Azad, Md Ariful Islam.</p>
+                <p class="pub-journal">Submitted to: <strong>Scientific Reports</strong></p>
+              </div>
+              <div class="pub-actions">
+                <button class="pub-copy-btn" data-citation="Nishan RK, Nahian M, Islam MS, Azad AK, Islam MA. A ceRNA-based multi-omics analysis identifies an ITGB1-DT and IGF2BP1 prognostic signature and predicted drug sensitivities in lung adenocarcinoma. Scientific Reports. Under Review.">Copy Citation</button>
+              </div>
+            </div>
+
+            <!-- Pub 3: In Review -->
+            <div class="publication-item" data-category="review">
+              <span class="pub-badge badge-review">In Review</span>
+              <div class="pub-details">
+                <h4 class="pub-title">Development and internal validation of a simple CBC-derived score to predict dengue NS1 positivity: A retrospective study in Dhaka</h4>
+                <p class="pub-authors"><strong>Rasel Khan Nishan</strong>, Abul Kalam Azad, Md Shariful Islam.</p>
+                <p class="pub-journal">Submitted to: <strong>PLoS ONE</strong></p>
+              </div>
+              <div class="pub-actions">
+                <button class="pub-copy-btn" data-citation="Nishan RK, Azad AK, Islam MS. Development and internal validation of a simple CBC-derived score to predict dengue NS1 positivity: A retrospective study in Dhaka. PLoS ONE. Under Review.">Copy Citation</button>
+              </div>
+            </div>
+
+            <!-- Pub 4: In Review -->
+            <div class="publication-item" data-category="review">
+              <span class="pub-badge badge-review">In Review</span>
+              <div class="pub-details">
+                <h4 class="pub-title">Burden and Trends of Antimicrobial Resistance Among Major Clinical Bacterial Pathogens in Bangladesh (2019–2024): A Systematic Review and Meta-Analysis</h4>
+                <p class="pub-authors">Mrityunjoy Acharjee, Md Sheikh Tayef, Md. Nahian, <strong>Rasel Khan Nishan</strong>, Rushafi Sikder, Nahidur Rahman.</p>
+                <p class="pub-journal">Submitted to: <strong>International Journal of Microbiology</strong></p>
+              </div>
+              <div class="pub-actions">
+                <button class="pub-copy-btn" data-citation="Acharjee M, Tayef MS, Nahian M, Nishan RK, Sikder R, Rahman N. Burden and Trends of Antimicrobial Resistance Among Major Clinical Bacterial Pathogens in Bangladesh (2019–2024): A Systematic Review and Meta-Analysis. International Journal of Microbiology. Under Review.">Copy Citation</button>
+              </div>
+            </div>
+
+            <!-- Pub 5: In Prep -->
+            <div class="publication-item" data-category="prep">
+              <span class="pub-badge badge-prep">In Preparation</span>
+              <div class="pub-details">
+                <h4 class="pub-title">Development of a Pan Proteome Vaccine against Nipah Virus</h4>
+                <p class="pub-authors">Research group under development. Expected compilation: <strong>July 2026</strong></p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Conferences Subdivision -->
+          <div class="subsection-wrap">
+            <h3 class="subsection-title">Conference Presentations</h3>
+            
+            <div class="conference-list">
+              <!-- Conf 1 -->
+              <div class="conference-card">
+                <div class="conf-meta">
+                  <span class="conf-type oral">Oral</span>
+                  <span class="conf-date">Dec 2024</span>
+                </div>
+                <h4 class="conf-title">mRNA-miRNA-lncRNA interaction network in different stages of lung adenocarcinoma</h4>
+                <p class="conf-presenters"><strong>Md. Rasel Khan</strong>, Md. Nahian, Md. Ariful Islam.</p>
+                <p class="conf-venue">38th BSM Annual International Conference 2024.</p>
+              </div>
+
+              <!-- Conf 2 -->
+              <div class="conference-card">
+                <div class="conf-meta">
+                  <span class="conf-type poster">Poster</span>
+                  <span class="conf-date">Jan 2024</span>
+                </div>
+                <h4 class="conf-title">Isolation and molecular characterization of bacterial strains from wastewater samples</h4>
+                <p class="conf-presenters">Nowshin Sharmile, Fadiya Binte Zaman, <strong>Md. Rasel Khan</strong>, Md. Ariful Islam.</p>
+                <p class="conf-venue">37th BSM Annual Conference <span class="highlight-inline">(1st Runner-up Poster Presentation)</span></p>
+              </div>
+
+              <!-- Conf 3 -->
+              <div class="conference-card">
+                <div class="conf-meta">
+                  <span class="conf-type poster">Poster</span>
+                  <span class="conf-date">Jan 2023</span>
+                </div>
+                <h4 class="conf-title">Designing of novel epitope-Based vaccine candidates against dengue isolates from Bangladesh</h4>
+                <p class="conf-presenters">Lincon Mazumder, Md. Nahian, Muslima Akter Metrika, Rubaiya Gulsan, Fabiha Rahman, <strong>Md. Rasel Khan</strong>, Mohammad Ariful Islam, Shamima Begum.</p>
+                <p class="conf-venue">36th BSM Annual BSM Conference 2023.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills, Training & Awards Section -->
+        <section id="skills" class="content-section">
+          <div class="section-header">
+            <h2 class="section-title">Skills, Training & Awards</h2>
+            <p class="section-subtitle">Technical skillset, scientific credentials, awards, and certifications.</p>
+          </div>
+
+          <!-- Interactive Skills Section -->
+          <h3 class="subsection-title">Technical Skills</h3>
+          <div class="skills-grid">
+            <!-- Wet Lab -->
+            <div class="skill-category-card">
+              <h4 class="skill-cat-title">Wet Lab Techniques</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">PCR & RT-PCR</span>
+                <span class="skill-tag">DNA Extraction & Quantification</span>
+                <span class="skill-tag">Agarose Gel Electrophoresis</span>
+                <span class="skill-tag">Microbial Isolation & Culture</span>
+                <span class="skill-tag">Antibiogram (Kirby–Bauer)</span>
+                <span class="skill-tag">Biochemical Assays (KIA, SIM, MR-VP, Citrate, Oxidase, Catalase)</span>
+                <span class="skill-tag">PFGE</span>
+                <span class="skill-tag">Media Preparation & Sterile Technique</span>
+              </div>
+            </div>
+
+            <!-- Computational Biology -->
+            <div class="skill-category-card">
+              <h4 class="skill-cat-title">Computational Biology & Bioinformatics</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">R & Python</span>
+                <span class="skill-tag">RNA-seq (FastQC, HISAT2/STAR, FeatureCounts)</span>
+                <span class="skill-tag">Differential Expression (DESeq2, edgeR)</span>
+                <span class="skill-tag">Multi-omics Networks (ceRNA, methylation, mutation)</span>
+                <span class="skill-tag">TCGA/GEO Database Analysis</span>
+                <span class="skill-tag">Functional Enrichment (GO, KEGG, GSEA)</span>
+                <span class="skill-tag">Single-cell RNA-seq (Seurat)</span>
+                <span class="skill-tag">Data Visualization (ggplot2, ComplexHeatmap)</span>
+                <span class="skill-tag">Molecular Docking (AutoDock, ClusPro)</span>
+                <span class="skill-tag">Structure Modeling (Robetta)</span>
+              </div>
+            </div>
+
+            <!-- Software Tools -->
+            <div class="skill-category-card">
+              <h4 class="skill-cat-title">Software & Operating Systems</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Linux (Terminal)</span>
+                <span class="skill-tag">RStudio & PyCharm</span>
+                <span class="skill-tag">MEGA</span>
+                <span class="skill-tag">BioRender</span>
+                <span class="skill-tag">Discovery Studio</span>
+                <span class="skill-tag">Windows / MS Office</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Awards -->
+          <div class="grid-two-col">
+            <div class="awards-wrap">
+              <h3 class="subsection-title">Awards & Honors</h3>
+              <ul class="styled-list">
+                <li>
+                  <span class="item-date">Jan 2024</span>
+                  <div class="item-body">
+                    <strong>1st Runner-up Poster Presentation</strong>
+                    <span class="item-desc">37th BSM Annual Conference</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="item-date">Oct 2023</span>
+                  <div class="item-body">
+                    <strong>National Science & Technology (NST) Fellowship</strong>
+                    <span class="item-desc">Ministry of Science & Technology, Bangladesh (2023-24)</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="item-date">Jun 2015</span>
+                  <div class="item-body">
+                    <strong>SSC Merit Scholarship</strong>
+                    <span class="item-desc">Dinajpur Education Board</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="item-date">Nov 2011</span>
+                  <div class="item-body">
+                    <strong>Best Reader Award</strong>
+                    <span class="item-desc">SEQAEP Project (Class 7)</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Training -->
+            <div class="training-wrap">
+              <h3 class="subsection-title">Training Experience</h3>
+              <ul class="styled-list">
+                <li>
+                  <span class="item-date">May 2025</span>
+                  <div class="item-body">
+                    <strong>RNA-Seq with Bioconductor in R</strong>
+                    <span class="item-desc">DataCamp</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="item-date">Mar 2024</span>
+                  <div class="item-body">
+                    <strong>Introduction to R</strong>
+                    <span class="item-desc">DataCamp</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="item-date">May 2023</span>
+                  <div class="item-body">
+                    <strong>Whole Genome Sequencing of Bacterial Genomes</strong>
+                    <span class="item-desc">Coursera (Tools & Applications)</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="item-date">Jun 2022</span>
+                  <div class="item-body">
+                    <strong>RT-PCR Based Molecular Diagnostic Technique</strong>
+                    <span class="item-desc">Hands-on Training, Graduate Microbiologist Society (GMS) Bangladesh</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Volunteering -->
+          <div class="volunteering-wrap">
+            <h3 class="subsection-title">Volunteering Experience</h3>
+            <div class="vol-grid">
+              <div class="vol-card">
+                <span class="vol-date">May 2025</span>
+                <h4 class="vol-title">Volunteer</h4>
+                <p class="vol-desc">Seminar on Public Health & AI, Department of Microbiology, Jagannath University</p>
+              </div>
+              <div class="vol-card">
+                <span class="vol-date">Nov 2022</span>
+                <h4 class="vol-title">Tour Management Volunteer</h4>
+                <p class="vol-desc">Microbiology Department Excursion, Jagannath University</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references" class="content-section">
+          <div class="section-header">
+            <h2 class="section-title">Academic References</h2>
+            <p class="section-subtitle">Academics and advisors from Jagannath University who can vouch for my research credentials.</p>
+          </div>
+
+          <div class="references-grid">
+            
+            <!-- Reference 1 -->
+            <div class="reference-card">
+              <h4 class="ref-name">Dr. Mohammad Ariful Islam</h4>
+              <p class="ref-title">Professor</p>
+              <p class="ref-dept">Department of Microbiology</p>
+              <p class="ref-inst">Jagannath University, Dhaka</p>
+              <div class="ref-contact">
+                <p>📧 <a href="mailto:ariful@mib.jnu.ac.bd">ariful@mib.jnu.ac.bd</a></p>
+                <p>📞 <a href="tel:+8801713018436">+8801713018436</a></p>
+              </div>
+            </div>
+
+            <!-- Reference 2 -->
+            <div class="reference-card">
+              <h4 class="ref-name">Dr. Ahmed Abu Rus</h4>
+              <p class="ref-title">Associate Professor</p>
+              <p class="ref-dept">Department of Microbiology</p>
+              <p class="ref-inst">Jagannath University, Dhaka</p>
+              <div class="ref-contact">
+                <p>📧 <a href="mailto:dr.ahmed@mib.jnu.ac.bd">dr.ahmed@mib.jnu.ac.bd</a></p>
+                <p>📞 <a href="tel:+8801869986789">+8801869986789</a></p>
+              </div>
+            </div>
+
+            <!-- Reference 3 -->
+            <div class="reference-card">
+              <h4 class="ref-name">Dr. Shamima Begum</h4>
+              <p class="ref-title">Professor and Chairman</p>
+              <p class="ref-dept">Department of Microbiology</p>
+              <p class="ref-inst">Jagannath University, Dhaka</p>
+              <div class="ref-contact">
+                <p>📧 <a href="mailto:shamima_begum@mib.jnu.ac.bd">shamima_begum@mib.jnu.ac.bd</a></p>
+                <p>📞 <a href="tel:+8801552326217">+8801552326217</a></p>
+              </div>
+            </div>
+
+            <!-- Reference 4 -->
+            <div class="reference-card">
+              <h4 class="ref-name">Md. Shariful Islam</h4>
+              <p class="ref-title">Assistant Professor</p>
+              <p class="ref-dept">Department of Microbiology</p>
+              <p class="ref-inst">Jagannath University, Dhaka</p>
+              <div class="ref-contact">
+                <p>📧 <a href="mailto:s_islam@mib.jnu.ac.bd">s_islam@mib.jnu.ac.bd</a></p>
+                <p>📞 <a href="tel:+8801912662171">+8801912662171</a></p>
+              </div>
+            </div>
+
+            <!-- Reference 5 -->
+            <div class="reference-card">
+              <h4 class="ref-name">Dr. Abul Kalam Azad</h4>
+              <p class="ref-title">Associate Professor</p>
+              <p class="ref-dept">Department of Microbiology</p>
+              <p class="ref-inst">Jagannath University, Dhaka</p>
+              <div class="ref-contact">
+                <p>📧 <a href="mailto:akazad88@mib.jnu.ac.bd">akazad88@mib.jnu.ac.bd</a></p>
+                <p>📞 <a href="tel:+8801732788272">+8801732788272</a></p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+          <div class="section-header">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Send a message for collaboration inquiries, scientific discussions, or job opportunities.</p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-form-container">
+              <form id="contact-form">
+                <div class="form-row-two">
+                  <div class="form-group">
+                    <label for="form-name">Name</label>
+                    <input type="text" id="form-name" placeholder="John Doe" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-email">Email</label>
+                    <input type="email" id="form-email" placeholder="john@example.com" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="form-subject">Subject</label>
+                  <input type="text" id="form-subject" placeholder="Collaboration / Inquiry" required>
+                </div>
+                <div class="form-group">
+                  <label for="form-message">Message</label>
+                  <textarea id="form-message" rows="6" placeholder="Your message here..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                  <span class="btn-text">Send Message</span>
+                  <span class="btn-spinner"></span>
+                </button>
+              </form>
+            </div>
+            
+            <div class="contact-meta-card">
+              <h4>Direct Contact Details</h4>
+              <p>For urgent matters, feel free to reach out directly using the details below:</p>
+              
+              <ul class="direct-contact-info">
+                <li>
+                  <span class="direct-icon">📧</span>
+                  <div>
+                    <strong>Email</strong>
+                    <a href="mailto:nishan.raselkhan@gmail.com">nishan.raselkhan@gmail.com</a>
+                  </div>
+                </li>
+                <li>
+                  <span class="direct-icon">📞</span>
+                  <div>
+                    <strong>Phone / WhatsApp</strong>
+                    <a href="tel:+8801785439803">+8801785439803</a>
+                  </div>
+                </li>
+                <li>
+                  <span class="direct-icon">📍</span>
+                  <div>
+                    <strong>Workplace</strong>
+                    <span>Department of Microbiology,<br>Jagannath University, Dhaka-1100, Bangladesh</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Rasel Khan Nishan. All rights reserved.</p>
+      <p class="footer-meta">Designed with vanilla HTML/CSS/JS. Responsive & dynamic portfolio.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
