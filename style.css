@@ -478,7 +478,14 @@ body.menu-open {
   transition: all var(--transition-normal);
 }
 
+.profile-avatar-frame picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .profile-avatar {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1223,6 +1230,16 @@ body.menu-open {
   color: var(--secondary);
 }
 
+.badge-data {
+  background-color: rgba(14, 116, 144, 0.12);
+  color: #0e7490;
+}
+
+[data-theme="dark"] .badge-data {
+  background-color: rgba(34, 211, 238, 0.14);
+  color: #67e8f9;
+}
+
 .pub-title {
   font-size: 1.15rem;
   font-weight: 750;
@@ -1245,6 +1262,7 @@ body.menu-open {
 
 .pub-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 0.25rem;
 }
@@ -1468,6 +1486,10 @@ body.menu-open {
   margin-bottom: 2.5rem;
 }
 
+.language-wrap {
+  margin-bottom: 2.5rem;
+}
+
 .experience-extra .volunteering-wrap {
   margin-top: 0;
 }
@@ -1566,101 +1588,6 @@ body.menu-open {
 .vol-desc {
   font-size: 0.85rem;
   color: var(--text-muted);
-}
-
-/* ==========================================================================
-   References Grid
-   ========================================================================== */
-.references-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-@media (min-width: 576px) {
-  .references-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 992px) {
-  .references-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1200px) {
-  .references-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.reference-card {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  transition: all var(--transition-normal);
-}
-
-.reference-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--primary);
-}
-
-.ref-name {
-  font-size: 1.1rem;
-  font-weight: 750;
-  margin-bottom: 0.25rem;
-}
-
-.ref-title {
-  font-size: 0.85rem;
-  color: var(--primary);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.ref-dept {
-  font-size: 0.85rem;
-  font-weight: 550;
-  color: var(--text-secondary);
-  margin-top: 0.25rem;
-}
-
-.ref-inst {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: auto; /* Push contact to the bottom */
-  padding-bottom: 1rem;
-}
-
-.ref-contact {
-  border-top: 1px solid var(--border-color);
-  padding-top: 0.75rem;
-  font-size: 0.85rem;
-}
-
-.ref-contact p {
-  margin-bottom: 0.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.ref-contact a {
-  color: var(--text-primary);
-  font-weight: 550;
-  word-break: break-all;
-}
-
-.ref-contact a:hover {
-  color: var(--primary);
 }
 
 /* ==========================================================================
@@ -2027,7 +1954,6 @@ body::after {
 .publication-item,
 .conference-card,
 .skill-category-card,
-.reference-card,
 .contact-form-container,
 .contact-meta-card,
 .vol-card,
@@ -2133,7 +2059,6 @@ body::after {
 .publication-item,
 .conference-card,
 .skill-category-card,
-.reference-card,
 .contact-form-container,
 .contact-meta-card,
 .vol-card {
@@ -2189,7 +2114,6 @@ body::after {
 .publication-item,
 .conference-card,
 .skill-category-card,
-.reference-card,
 .stat-card,
 .vol-card,
 .contact-form-container,
@@ -2211,7 +2135,6 @@ body::after {
 .publication-item:hover,
 .conference-card:hover,
 .skill-category-card:hover,
-.reference-card:hover,
 .stat-card:hover,
 .vol-card:hover {
   box-shadow: var(--glass-shadow-hover);
@@ -2289,4 +2212,13 @@ body::after {
   body::before {
     animation: none;
   }
+}
+
+/* Keep the new portrait naturally framed inside the original profile layout. */
+.profile-avatar {
+  object-position: center 10%;
+}
+
+.social-btn svg {
+  flex: 0 0 auto;
 }
