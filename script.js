@@ -20,14 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      Theme Switching (Light/Dark)
      ========================================================================== */
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    themeToggle.setAttribute(
+      'aria-label',
+      theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+    );
+  };
+
   const initTheme = () => {
     const savedTheme = localStorage.getItem('portfolio-theme');
     localStorage.removeItem('theme');
     
     if (savedTheme === 'dark' || savedTheme === 'light') {
-      document.documentElement.setAttribute('data-theme', savedTheme);
+      applyTheme(savedTheme);
     } else {
-      document.documentElement.setAttribute('data-theme', 'light');
+      applyTheme('light');
     }
   };
 
@@ -35,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
-    document.documentElement.setAttribute('data-theme', newTheme);
+    applyTheme(newTheme);
     localStorage.setItem('portfolio-theme', newTheme);
     showToast(`Switched to ${newTheme} mode`);
   });
@@ -73,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const switchTab = (targetId) => {
+  const switchTab = (targetId, { updateHistory = true } = {}) => {
     // Deactivate all links and sections
     navLinks.forEach(link => {
       if (link.getAttribute('data-target') === targetId) {
@@ -97,16 +105,18 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.remove('mobile-home-view');
     }
 
-    // Update address bar hash without trigger jump
-    if (targetId === 'home') {
-  history.replaceState(null, null, window.location.pathname);
-} else {
-  if (targetId === 'home') {
-  history.replaceState(null, null, window.location.pathname);
-} else {
-  history.pushState(null, null, '#' + targetId);
-}
-}
+    // Update the address bar only for direct navigation. Back/forward events
+    // reuse existing history entries instead of creating new ones.
+    if (updateHistory) {
+      const currentTarget = window.location.hash.substring(1) || 'home';
+
+      if (currentTarget !== targetId) {
+        const nextUrl = targetId === 'home'
+          ? window.location.pathname + window.location.search
+          : '#' + targetId;
+        history.pushState(null, '', nextUrl);
+      }
+    }
 
     // Wait for the active section to become visible, then scroll to it.
     requestAnimationFrame(() => {
@@ -129,32 +139,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Handle page load hash
-  const handleHashOnLoad = () => {
+  const handleInitialRoute = () => {
     const hash = window.location.hash.substring(1);
-    const validSections = Array.from(sections).map(s => s.id);
-    
-    if (hash && validSections.includes(hash)) {
-      switchTab(hash);
-    }
+    const validSections = Array.from(sections).map(section => section.id);
+    const initialTarget = hash && validSections.includes(hash) ? hash : 'home';
+    switchTab(initialTarget, { updateHistory: false });
   };
 
-  const handleInitialRoute = () => {
-  const hash = window.location.hash.substring(1);
-  const validSections = Array.from(sections).map(s => s.id);
+  handleInitialRoute();
 
-  if (hash && validSections.includes(hash)) {
-    switchTab(hash);
-  } else {
-    switchTab('home');
-  }
-};
-
-handleInitialRoute();
   // Also handle back/forward browser navigation
   window.addEventListener('popstate', () => {
     const hash = window.location.hash.substring(1) || 'home';
-    switchTab(hash);
+    switchTab(hash, { updateHistory: false });
   });
 
   /* ==========================================================================
@@ -165,6 +162,7 @@ handleInitialRoute();
     mobileNavTrigger.classList.toggle('active', isOpen);
     document.body.classList.toggle('menu-open', isOpen);
     mobileNavTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    mobileNavTrigger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
   };
 
   mobileNavTrigger.setAttribute('aria-expanded', 'false');
@@ -223,8 +221,12 @@ handleInitialRoute();
   filterTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       // Set active tab
-      filterTabs.forEach(t => t.classList.remove('active'));
+      filterTabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-pressed', 'false');
+      });
       tab.classList.add('active');
+      tab.setAttribute('aria-pressed', 'true');
 
       const filterValue = tab.getAttribute('data-filter');
 
